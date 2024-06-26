@@ -19,6 +19,7 @@
         <th>Catalog Name</th>
         <th>Description</th>
         <th>Status</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -28,9 +29,14 @@
             <td>${catalog.catalogName}</td>
             <td>${catalog.description}</td>
             <td>${catalog.status?"Active":"Inactive"}</td>
+            <td>
+                <a href="<%=request.getContextPath()%>/CategoriesController/initUpdate?catalogId=${catalog.catalogId}">Update</a>
+                <a href="<%=request.getContextPath()%>/CategoriesController/delete?catalogId=${catalog.catalogId}">Delete</a>
+            </td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
+<a href="<%=request.getContextPath()%>/CategoriesController/initCreate">Create new catalog</a>
 </body>
 </html>

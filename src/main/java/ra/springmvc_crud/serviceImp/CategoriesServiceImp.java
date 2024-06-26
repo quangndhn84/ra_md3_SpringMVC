@@ -13,6 +13,7 @@ import java.util.List;
 public class CategoriesServiceImp implements CategoriesService {
     //Tiêm phụ thuộc CategoriesRepository vào để tạo instance và gọi sang repository
     private final CategoriesRepository categoriesRepository;
+
     @Autowired
     public CategoriesServiceImp(CategoriesRepositoryImp categoriesRepositoryImp) {
         this.categoriesRepository = categoriesRepositoryImp;
@@ -21,5 +22,25 @@ public class CategoriesServiceImp implements CategoriesService {
     @Override
     public List<Categories> findAll() {
         return categoriesRepository.findAll();
+    }
+
+    @Override
+    public boolean create(Categories catalog) {
+        return categoriesRepository.create(catalog);
+    }
+
+    @Override
+    public Categories findById(int catalogId) {
+        return categoriesRepository.findById(catalogId);
+    }
+
+    @Override
+    public boolean update(Categories catalog) {
+        return categoriesRepository.update(catalog);
+    }
+
+    @Override
+    public boolean delete(int catalogId) {
+        return categoriesRepository.delete(catalogId);
     }
 }
